@@ -13,6 +13,11 @@
 		520154F225ED591A002C77DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520154F025ED591A002C77DE /* Main.storyboard */; };
 		520154F425ED591B002C77DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520154F325ED591B002C77DE /* Assets.xcassets */; };
 		520154F725ED591B002C77DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520154F525ED591B002C77DE /* LaunchScreen.storyboard */; };
+		5201550425F107C4002C77DE /* Screenshot 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 520154FF25F107C3002C77DE /* Screenshot 1.PNG */; };
+		5201550525F107C4002C77DE /* Screenshot 3.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5201550025F107C3002C77DE /* Screenshot 3.PNG */; };
+		5201550625F107C4002C77DE /* Screenshot 4.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5201550125F107C4002C77DE /* Screenshot 4.PNG */; };
+		5201550725F107C4002C77DE /* Screenshot 5.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5201550225F107C4002C77DE /* Screenshot 5.PNG */; };
+		5201550825F107C4002C77DE /* Screenshot 2.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 5201550325F107C4002C77DE /* Screenshot 2.PNG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		520154F325ED591B002C77DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		520154F625ED591B002C77DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520154F825ED591B002C77DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		520154FF25F107C3002C77DE /* Screenshot 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 1.PNG"; sourceTree = "<group>"; };
+		5201550025F107C3002C77DE /* Screenshot 3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 3.PNG"; sourceTree = "<group>"; };
+		5201550125F107C4002C77DE /* Screenshot 4.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 4.PNG"; sourceTree = "<group>"; };
+		5201550225F107C4002C77DE /* Screenshot 5.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 5.PNG"; sourceTree = "<group>"; };
+		5201550325F107C4002C77DE /* Screenshot 2.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screenshot 2.PNG"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,7 @@
 		520154DE25ED591A002C77DE = {
 			isa = PBXGroup;
 			children = (
+				5201550B25F107DD002C77DE /* Screenshots */,
 				520154E925ED591A002C77DE /* AR Image Finder */,
 				520154E825ED591A002C77DE /* Products */,
 			);
@@ -65,6 +76,18 @@
 				520154F825ED591B002C77DE /* Info.plist */,
 			);
 			path = "AR Image Finder";
+			sourceTree = "<group>";
+		};
+		5201550B25F107DD002C77DE /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				520154FF25F107C3002C77DE /* Screenshot 1.PNG */,
+				5201550325F107C4002C77DE /* Screenshot 2.PNG */,
+				5201550025F107C3002C77DE /* Screenshot 3.PNG */,
+				5201550125F107C4002C77DE /* Screenshot 4.PNG */,
+				5201550225F107C4002C77DE /* Screenshot 5.PNG */,
+			);
+			name = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +147,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5201550425F107C4002C77DE /* Screenshot 1.PNG in Resources */,
 				520154ED25ED591A002C77DE /* art.scnassets in Resources */,
+				5201550625F107C4002C77DE /* Screenshot 4.PNG in Resources */,
 				520154F725ED591B002C77DE /* LaunchScreen.storyboard in Resources */,
 				520154F425ED591B002C77DE /* Assets.xcassets in Resources */,
+				5201550525F107C4002C77DE /* Screenshot 3.PNG in Resources */,
+				5201550725F107C4002C77DE /* Screenshot 5.PNG in Resources */,
+				5201550825F107C4002C77DE /* Screenshot 2.PNG in Resources */,
 				520154F225ED591A002C77DE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
