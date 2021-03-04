@@ -5,13 +5,16 @@
 //  Created by MacBook Pro on 01.03.2021.
 //
 
-import UIKit
-import SceneKit
 import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    
+    let videoPlayer: AVPlayer = {
+        let url = Bundle.main.url(forResource: "Moscow", withExtension: "mp4", subdirectory: "art.scnassets")!
+        return AVPlayer(url: url)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +82,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let plane = SCNPlane(width: width, height: height)
         plane.firstMaterial?.diffuse.contents = image.name == "church" ?
             UIImage(named: "monument") :
-            UIImage(named: "habarovsk")
+            videoPlayer
+        if image.name == "yaroslavl" {
+            videoPlayer.play()
+        }
         
         // Create plane node
         let planeNode = SCNNode(geometry: plane)
@@ -87,6 +93,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Move plane node
         planeNode.position.x -= image.name == "church" ? 0.005 : 0
+        
+        // Run animation
+        planeNode.runAction(.sequence([
+            .wait(duration: 15),
+            .fadeOut(duration: 5),
+            .removeFromParentNode(),
+            ])
+        )
         
         // Add plane node to given node
         node.addChildNode(planeNode)
