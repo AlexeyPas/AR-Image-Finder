@@ -28,8 +28,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillAppear(animated)
         
         // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-
+        let configuration = ARImageTrackingConfiguration()
+        
+        // Detect images
+        configuration.trackingImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil)!
+        configuration.maximumNumberOfTrackedImages = 2
+        // Detect plane
+        //configuration.planeDetection = [.horizontal]
+        
         // Run the view's session
         sceneView.session.run(configuration)
     }
@@ -43,12 +49,46 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        
+        // Check that we've got an image anchor
+        switch anchor {
+        case let planeAnchor as ARPlaneAnchor:
+            nodeAdded(node, for: planeAnchor)
+        case let imageAnchor as ARImageAnchor:
+            nodeAdded(node, for: imageAnchor)
+        default:
+            print(#line, #function, "Unknoun anchor has been discovered")
+        }
     }
-*/
+    
+    func nodeAdded(_ node: SCNNode, for planeAnchor: ARPlaneAnchor){
+        print(#line, #function, "Plane \(planeAnchor) added")
+    }
+    
+    func nodeAdded(_ node:SCNNode, for imageAnchor: ARImageAnchor){
+        // Get image size
+        let image = imageAnchor.referenceImage
+        let size = image.physicalSize
+        
+        // Create plane of the same size
+        let width = image.name == "church" ?
+            16.3 / 10.17 * size.width :
+            16.3 / 9.6071 * size.width
+        let height = 1.03 * size.height
+        let plane = SCNPlane(width: width, height: height)
+        plane.firstMaterial?.diffuse.contents = image.name == "church" ?
+            UIImage(named: "monument") :
+            UIImage(named: "habarovsk")
+        
+        // Create plane node
+        let planeNode = SCNNode(geometry: plane)
+        planeNode.eulerAngles.x = -.pi / 2
+        
+        // Move plane node
+        planeNode.position.x -= image.name == "church" ? 0.005 : 0
+        
+        // Add plane node to given node
+        node.addChildNode(planeNode)
+    }
 }
